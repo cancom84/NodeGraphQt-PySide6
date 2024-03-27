@@ -71,7 +71,7 @@ class ViewerEnum(Enum):
     :py:mod:`NodeGraphQt.constants.ViewerEnum`
     """
     #: default background color for the node graph.
-    BACKGROUND_COLOR = (35, 35, 35)
+    BACKGROUND_COLOR = (255, 255, 255)
     #: style node graph background with no grid or dots.
     GRID_DISPLAY_NONE = 0
     #: style node graph background with dots.
@@ -79,9 +79,9 @@ class ViewerEnum(Enum):
     #: style node graph background with grid lines.
     GRID_DISPLAY_LINES = 2
     #: grid size when styled with grid lines.
-    GRID_SIZE = 50
+    GRID_SIZE = 20
     #: grid line color.
-    GRID_COLOR = (45, 45, 45)
+    GRID_COLOR = (180, 180, 180)
 
 
 class ViewerNavEnum(Enum):
@@ -90,7 +90,7 @@ class ViewerNavEnum(Enum):
     :py:mod:`NodeGraphQt.constants.ViewerNavEnum`
     """
     #: default background color.
-    BACKGROUND_COLOR = (25, 25, 25)
+    BACKGROUND_COLOR = (0, 0, 0)
     #: default item color.
     ITEM_COLOR = (35, 35, 35)
 
@@ -103,15 +103,16 @@ class NodeEnum(Enum):
     :py:mod:`NodeGraphQt.constants.NodeEnum`
     """
     #: default node width.
-    WIDTH = 160
+    WIDTH = 180
     #: default node height.
-    HEIGHT = 60
+    HEIGHT = 80
     #: default node icon size (WxH).
-    ICON_SIZE = 18
+    ICON_SIZE = 20
     #: default node overlay color when selected.
-    SELECTED_COLOR = (255, 255, 255, 30)
+    SELECTED_COLOR = (129, 194, 65, 100)
+    
     #: default node border color when selected.
-    SELECTED_BORDER_COLOR = (254, 207, 42, 255)
+    SELECTED_BORDER_COLOR = (40, 84, 113, 255)
 
 # ==================================== PORT ====================================
 
@@ -160,13 +161,13 @@ class PipeEnum(Enum):
     #: default width.
     WIDTH = 1.2
     #: default color.
-    COLOR = (175, 95, 30, 255)
+    COLOR = (100, 100, 100, 150)
     #: pipe color to a node when it's disabled.
-    DISABLED_COLOR = (190, 20, 20, 255)
+    DISABLED_COLOR = (100, 100, 100, 150)
     #: pipe color when selected or mouse over.
     ACTIVE_COLOR = (70, 255, 220, 255)
     #: pipe color to a node when it's selected.
-    HIGHLIGHT_COLOR = (232, 184, 13, 255)
+    HIGHLIGHT_COLOR = (129, 194, 65, 255)
     #: draw connection as a line.
     DRAW_TYPE_DEFAULT = 0
     #: draw connection as dashed lines.
