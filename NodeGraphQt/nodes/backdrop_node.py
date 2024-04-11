@@ -131,3 +131,15 @@ class BackdropNode(NodeObject):
         self.model.width = self.view.width
         self.model.height = self.view.height
         return self.model.width, self.model.height
+    
+    def set_backdrop_font_size(self, font_size):
+        """
+        Sets the font size for the backdrop text.
+
+        Args:
+            font_size (int): The desired font size.
+        """
+        if self.view:  # Ensure there is a graphical view associated
+            self.view.set_backdrop_font_size(font_size)
+    
+   
