@@ -115,11 +115,12 @@ class BackdropNodeItem(AbstractNodeItem):
         super(BackdropNodeItem, self).__init__(name, parent)
         self.setZValue(Z_VAL_PIPE - 1)
         self._properties['backdrop_text'] = text
+        self._backdrop_font_size = 12  # Default font size
         self._min_size = 80, 80
         self._sizer = BackdropSizer(self, 26.0)
         self._sizer.set_pos(*self._min_size)
         self._nodes = [self]
-
+    
     def _combined_rect(self, nodes):
         group = self.scene().createItemGroup(nodes)
         rect = group.boundingRect()
@@ -172,6 +173,10 @@ class BackdropNodeItem(AbstractNodeItem):
         size = self.calc_backdrop_size()
         self.viewer().node_backdrop_updated.emit(
             self.id, 'sizer_double_clicked', size)
+        
+    def set_backdrop_font_size(self, font_size):
+        self._backdrop_font_size = font_size
+        self.update()  # Trigger a repaint to apply the new font size
 
     def paint(self, painter, option, widget):
         """
@@ -186,7 +191,10 @@ class BackdropNodeItem(AbstractNodeItem):
         painter.save()
         painter.setPen(QtCore.Qt.NoPen)
         painter.setBrush(QtCore.Qt.NoBrush)
-
+        font = painter.font()
+        # print(self._font)
+        font.setPointSize(self._backdrop_font_size)  # Adjust the font size
+        painter.setFont(font)  # Apply the modified font
         margin = 1.0
         rect = self.boundingRect()
         rect = QtCore.QRectF(rect.left() + margin,
