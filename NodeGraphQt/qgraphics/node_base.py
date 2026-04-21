@@ -525,11 +525,15 @@ class NodeItem(AbstractNodeItem):
         if ITEM_CACHE_MODE is QtWidgets.QGraphicsItem.ItemCoordinateCache:
             return
 
+        viewer = self.viewer()
+        if viewer is None:
+            return
+
         rect = self.sceneBoundingRect()
-        l = self.viewer().mapToGlobal(
-            self.viewer().mapFromScene(rect.topLeft()))
-        r = self.viewer().mapToGlobal(
-            self.viewer().mapFromScene(rect.topRight()))
+        l = viewer.mapToGlobal(
+            viewer.mapFromScene(rect.topLeft()))
+        r = viewer.mapToGlobal(
+            viewer.mapFromScene(rect.topRight()))
         # width is the node width in screen
         width = r.x() - l.x()
 
